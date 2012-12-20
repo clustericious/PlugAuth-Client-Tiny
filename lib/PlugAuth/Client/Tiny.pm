@@ -106,8 +106,6 @@ Returns 1 on success, 0 on failure and dies on connection failure.
 
 =cut
 
-# /authz/user/#user/#action/(*resource)
-
 sub authz
 {
   my($self, $user, $action, $resource) = @_;
