@@ -87,7 +87,19 @@ sub auth
   
   my $response = $self->{http}->get($self->{url} . 'auth', { 
     headers => { 
-      Authorization => 'Basic ' . _encode_base64(join(':', $user,$password)) 
+      Authorization => 'Basic ' . do {
+        # TODO maybe use MIME::Base64 if available?
+        # it may be faster.
+        use integer;
+        my $a = join(':', $user,$password);
+        my $r = pack('u', $a);
+        $r =~ s/^.//mg;
+        $r =~ s/\n//g;
+        $r =~ tr|` -_|AA-Za-z0-9+/|;
+        my $p = (3-length($a)%3)%3;
+        $r =~ s/.{$p}$/'=' x $p/e if $p;
+        $r;
+      },
     } 
   });
   
@@ -116,18 +128,6 @@ sub authz
   return 1 if $response->{status} == 200;
   return 0 if $response->{status} == 403;
   die $response->{content};
-}
-
-sub _encode_base64
-{
-  use integer;
-  my $r = pack('u', $_[0]);
-  $r =~ s/^.//mg;
-  $r =~ s/\n//g;
-  $r =~ tr|` -_|AA-Za-z0-9+/|;
-  my $p = (3-length($_[0])%3)%3;
-  $r =~ s/.{$p}$/'=' x $p/e if $p;
-  $r;
 }
 
 1;
