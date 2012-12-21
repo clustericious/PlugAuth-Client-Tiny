@@ -17,7 +17,6 @@ is $last_url, 'http://localhost:3000/auth', 'url = http://localhost:3000/auth';
 
 package HTTP::Tiny;
 
-use MIME::Base64 qw( decode_base64 );
 BEGIN { $INC{'HTTP/Tiny.pm'} = __PACKAGE__ };
 
 sub new { bless {}, 'HTTP::Tiny' }

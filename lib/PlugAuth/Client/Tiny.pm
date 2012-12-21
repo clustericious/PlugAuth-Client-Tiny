@@ -4,7 +4,6 @@ use strict;
 use warnings;
 use 5.006;
 use HTTP::Tiny;
-use MIME::Base64 qw( encode_base64 );
 
 # ABSTRACT: Minimal PlugAuth client
 # VERSION
@@ -88,7 +87,7 @@ sub auth
   
   my $response = $self->{http}->get($self->{url} . 'auth', { 
     headers => { 
-      Authorization => 'Basic ' . encode_base64(join(':', $user,$password)) 
+      Authorization => 'Basic ' . _encode_base64(join(':', $user,$password)) 
     } 
   });
   
@@ -117,6 +116,18 @@ sub authz
   return 1 if $response->{status} == 200;
   return 0 if $response->{status} == 403;
   die $response->{content};
+}
+
+sub _encode_base64
+{
+  use integer;
+  my $r = pack('u', $_[0]);
+  $r =~ s/^.//mg;
+  $r =~ s/\n//g;
+  $r =~ tr|` -_|AA-Za-z0-9+/|;
+  my $p = (3-length($_[0])%3)%3;
+  $r =~ s/.{$p}$/'=' x $p/e if $p;
+  $r;
 }
 
 1;
