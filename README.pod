@@ -46,6 +46,10 @@ is used.
 
 =back
 
+All other options passed to C<new> will be passed on to the constructor of L<HTTP::Tiny>,
+which allows you to set C<agent>, C<default_headers>, etc.  See the documentation of
+L<HTTP::Tiny> for details.
+
 =head1 ATTRIBUTES
 
 =head2 $client-E<gt>url

@@ -48,18 +48,21 @@ is used.
 
 =back
 
+All other options passed to C<new> will be passed on to the constructor of L<HTTP::Tiny>,
+which allows you to set C<agent>, C<default_headers>, etc.  See the documentation of
+L<HTTP::Tiny> for details.
+
 =cut
 
 sub new
 {
-  ## TODO way to pass arguments to the HTTP::Tiny constructor
   my $class = shift;
   my %args = ref $_[0] ? %{$_[0]} : @_;
-  my $url = $args{url} || 'http://localhost:3000/';
+  my $url = (delete $args{url}) || 'http://localhost:3000/';
   $url =~ s{/?$}{/};
   return bless { 
     url    => $url,
-    http   => HTTP::Tiny->new,
+    http   => HTTP::Tiny->new(%args),
   }, $class;
 }
 
