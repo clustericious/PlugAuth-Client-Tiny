@@ -52,6 +52,7 @@ is used.
 
 sub new
 {
+  ## TODO way to pass arguments to the HTTP::Tiny constructor
   my $class = shift;
   my %args = ref $_[0] ? %{$_[0]} : @_;
   my $url = $args{url} || 'http://localhost:3000/';
@@ -87,9 +88,11 @@ sub auth
   
   my $response = $self->{http}->get($self->{url} . 'auth', { 
     headers => { 
+      ## TODO option for setting the realm
+      # WWW-Authenticate: Basic realm="..."
       Authorization => 'Basic ' . do {
-        # TODO maybe use MIME::Base64 if available?
-        # it may be faster.
+        ## TODO maybe use MIME::Base64 if available?
+        ## it is XS, but may be faster.
         use integer;
         my $a = join(':', $user,$password);
         my $r = pack('u', $a);
