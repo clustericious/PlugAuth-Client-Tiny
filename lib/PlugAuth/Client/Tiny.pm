@@ -2,7 +2,7 @@ package PlugAuth::Client::Tiny;
 
 use strict;
 use warnings;
-use v5.10;
+use 5.006;
 use HTTP::Tiny;
 use MIME::Base64 qw( encode_base64 );
 
@@ -55,7 +55,7 @@ sub new
 {
   my $class = shift;
   my %args = ref $_[0] ? %{$_[0]} : @_;
-  my $url = $args{url} // 'http://localhost:3000/';
+  my $url = $args{url} || 'http://localhost:3000/';
   $url =~ s{/?$}{/};
   return bless { 
     url    => $url,
