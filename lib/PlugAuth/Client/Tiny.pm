@@ -137,3 +137,10 @@ sub authz
 }
 
 1;
+
+=head1 CAVEATS
+
+This module depends on L<HTTP::Tiny>, which is a non-core dependency, and by
+some definitions of C<::Tiny>, therefore no longer tiny.
+
+=cut

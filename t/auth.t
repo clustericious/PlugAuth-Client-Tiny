@@ -61,9 +61,9 @@ sub decode_base64 ($)
     my $str = shift;
     $str =~ tr|A-Za-z0-9+=/||cd;            # remove non-base64 chars
     if (length($str) % 4) {
-	#require Carp;
-	#Carp::carp("Length of base64 data not a multiple of 4")
-	warn "Length of base64 data not a multiple of 4";
+        #require Carp;
+        #Carp::carp("Length of base64 data not a multiple of 4")
+        warn "Length of base64 data not a multiple of 4";
     }
     $str =~ s/=+$//;                        # remove padding
     $str =~ tr|A-Za-z0-9+/| -_|;            # convert to uuencoded format
@@ -71,18 +71,18 @@ sub decode_base64 ($)
 
     ## I guess this could be written as
     #return unpack("u", join('', map( chr(32 + length($_)*3/4) . $_,
-    #			$str =~ /(.{1,60})/gs) ) );
+    #                   $str =~ /(.{1,60})/gs) ) );
     ## but I do not like that...
     my $uustr = '';
     my ($i, $l);
     $l = length($str) - 60;
     for ($i = 0; $i <= $l; $i += 60) {
-	$uustr .= "M" . substr($str, $i, 60);
+        $uustr .= "M" . substr($str, $i, 60);
     }
     $str = substr($str, $i);
     # and any leftover chars
     if ($str ne "") {
-	$uustr .= chr(32 + length($str)*3/4) . $str;
+        $uustr .= chr(32 + length($str)*3/4) . $str;
     }
     return unpack ("u", $uustr);
 }
