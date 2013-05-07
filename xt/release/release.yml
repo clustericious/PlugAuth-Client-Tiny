@@ -4,6 +4,7 @@ pod_spelling_system:
     - RESTful
     - url
     - API
+    - PlugAuth
 
 pod_coverage:
   private:
