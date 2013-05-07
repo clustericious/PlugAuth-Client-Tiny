@@ -1,3 +1,5 @@
+=pod
+
 =head1 NAME
 
 PlugAuth::Client::Tiny - Minimal PlugAuth client
@@ -67,6 +69,11 @@ Returns 1 on success, 0 on failure and dies on a connection failure.
 
 Determine if the given user is authorized to perform the given action on the given resource.
 Returns 1 on success, 0 on failure and dies on connection failure.
+
+=head1 CAVEATS
+
+This module depends on L<HTTP::Tiny>, which is a non-core dependency, and by
+some definitions of C<::Tiny>, therefore no longer tiny.
 
 =head1 AUTHOR
 
