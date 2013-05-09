@@ -30,6 +30,10 @@ modify the users/groups/authorization on the server through the RESTful API
 then you will need the heavier L<PlugAuth::Client> which relies on 
 L<Clustericious::Client> and L<Mojo::UserAgent>.
 
+PlugAuth::Client::Tiny should work perfectly with L<PlugAuth::Lite> as well, 
+because it only uses the subset of the PlugAuth API which is implemented by
+L<PlugAuth::Lite>.
+
 =head1 CONSTRUCTOR
 
 The constructor is (predictably) C<new>:
