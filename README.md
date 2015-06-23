@@ -17,16 +17,16 @@ Minimal PlugAuth client
 
 # DESCRIPTION
 
-PlugAuth::Client::Tiny is a minimal [PlugAuth](http://search.cpan.org/perldoc?PlugAuth) client.  It uses [HTTP::Tiny](http://search.cpan.org/perldoc?HTTP::Tiny) 
-instead of [LWP](http://search.cpan.org/perldoc?LWP) or [Mojo::UserAgent](http://search.cpan.org/perldoc?Mojo::UserAgent).  It provides only a mechanism for
-authenticating and authorizing against a [PlugAuth](http://search.cpan.org/perldoc?PlugAuth) server.  If you need to
+PlugAuth::Client::Tiny is a minimal [PlugAuth](https://metacpan.org/pod/PlugAuth) client.  It uses [HTTP::Tiny](https://metacpan.org/pod/HTTP::Tiny) 
+instead of [LWP](https://metacpan.org/pod/LWP) or [Mojo::UserAgent](https://metacpan.org/pod/Mojo::UserAgent).  It provides only a mechanism for
+authenticating and authorizing against a [PlugAuth](https://metacpan.org/pod/PlugAuth) server.  If you need to
 modify the users/groups/authorization on the server through the RESTful API
-then you will need the heavier [PlugAuth::Client](http://search.cpan.org/perldoc?PlugAuth::Client) which relies on 
-[Clustericious::Client](http://search.cpan.org/perldoc?Clustericious::Client) and [Mojo::UserAgent](http://search.cpan.org/perldoc?Mojo::UserAgent).
+then you will need the heavier [PlugAuth::Client](https://metacpan.org/pod/PlugAuth::Client) which relies on 
+[Clustericious::Client](https://metacpan.org/pod/Clustericious::Client) and [Mojo::UserAgent](https://metacpan.org/pod/Mojo::UserAgent).
 
-PlugAuth::Client::Tiny should work perfectly with [PlugAuth::Lite](http://search.cpan.org/perldoc?PlugAuth::Lite) as well, 
+PlugAuth::Client::Tiny should work perfectly with [PlugAuth::Lite](https://metacpan.org/pod/PlugAuth::Lite) as well, 
 because it only uses the subset of the PlugAuth API which is implemented by
-[PlugAuth::Lite](http://search.cpan.org/perldoc?PlugAuth::Lite).
+[PlugAuth::Lite](https://metacpan.org/pod/PlugAuth::Lite).
 
 # CONSTRUCTOR
 
@@ -39,24 +39,24 @@ PlugAuth::Client::Tiny's constructor accepts one optional option:
 
 - url
 
-    The URL of the [PlugAuth](http://search.cpan.org/perldoc?PlugAuth) server.  If not specified, `http://localhost:3000`
+    The URL of the [PlugAuth](https://metacpan.org/pod/PlugAuth) server.  If not specified, `http://localhost:3000`
     is used.
 
-All other options passed to `new` will be passed on to the constructor of [HTTP::Tiny](http://search.cpan.org/perldoc?HTTP::Tiny),
+All other options passed to `new` will be passed on to the constructor of [HTTP::Tiny](https://metacpan.org/pod/HTTP::Tiny),
 which allows you to set `agent`, `default_headers`, etc.  See the documentation of
-[HTTP::Tiny](http://search.cpan.org/perldoc?HTTP::Tiny) for details.
+[HTTP::Tiny](https://metacpan.org/pod/HTTP::Tiny) for details.
 
 # ATTRIBUTES
 
 ## $client->url
 
-Returns the URL for the [PlugAuth](http://search.cpan.org/perldoc?PlugAuth) server.  This attribute is read-only.
+Returns the URL for the [PlugAuth](https://metacpan.org/pod/PlugAuth) server.  This attribute is read-only.
 
 # METHODS
 
 ## $client->auth( $user, $password )
 
-Attempt to authenticate against the [PlugAuth](http://search.cpan.org/perldoc?PlugAuth) server using the given username and password.
+Attempt to authenticate against the [PlugAuth](https://metacpan.org/pod/PlugAuth) server using the given username and password.
 Returns 1 on success, 0 on failure and dies on a connection failure.
 
 ## $client->authz( $user, $action, $resource)
@@ -66,7 +66,7 @@ Returns 1 on success, 0 on failure and dies on connection failure.
 
 # CAVEATS
 
-This module depends on [HTTP::Tiny](http://search.cpan.org/perldoc?HTTP::Tiny), which is a non-core dependency, and by
+This module depends on [HTTP::Tiny](https://metacpan.org/pod/HTTP::Tiny), which is a non-core dependency, and by
 some definitions of `::Tiny`, therefore no longer tiny.
 
 # AUTHOR
