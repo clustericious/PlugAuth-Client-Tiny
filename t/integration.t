@@ -35,6 +35,6 @@ is dothread { $client->version }, PlugAuth->VERSION, "client.version = @{[ PlugA
 
 __DATA__
 
-@@ lib/PlugAuth.conf
+@@ etc/PlugAuth.conf
 ---
 url: <%= cluster->url %>
