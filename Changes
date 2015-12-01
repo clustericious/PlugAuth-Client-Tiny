@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.02      2015-12-01 10:15:48 -0500
   - Added version method
   - Moved repository to clustericious org on github
     (updated meta appropriately)
