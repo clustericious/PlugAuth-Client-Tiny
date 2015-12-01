@@ -70,6 +70,12 @@ Returns 1 on success, 0 on failure and dies on a connection failure.
 Determine if the given user is authorized to perform the given action on the given resource.
 Returns 1 on success, 0 on failure and dies on connection failure.
 
+## version
+
+    my $version = $client->version;
+
+Returns the version of the [PlugAuth](https://metacpan.org/pod/PlugAuth) server.
+
 # AUTHOR
 
 Graham Ollis &lt;plicease@cpan.org>

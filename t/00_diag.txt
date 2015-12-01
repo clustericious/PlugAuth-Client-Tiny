@@ -1,3 +1,4 @@
 ExtUtils::MakeMaker
 HTTP::Tiny
+JSON::PP
 Test::More

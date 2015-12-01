@@ -146,4 +146,26 @@ sub authz
   die $response->{content};
 }
 
+=head2 version
+
+ my $version = $client->version;
+
+Returns the version of the L<PlugAuth> server.
+
+=cut
+
+sub version
+{
+  my($self) = @_;
+  
+  my $url = $self->{url} . 'version';
+  my $response = $self->{http}->get($url);
+  
+  return unless $response->{status} == 200;
+  
+  # JSON::PP is in core as of 5.14
+  require JSON::PP;
+  JSON::PP::decode_json($response->{content})->[0];
+}
+
 1;
