@@ -5,6 +5,8 @@ pod_spelling_system:
     - url
     - API
     - PlugAuth
+    - auth
+    - authz
 
 pod_coverage:
   private:

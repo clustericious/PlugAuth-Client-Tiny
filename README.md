@@ -30,7 +30,7 @@ because it only uses the subset of the PlugAuth API which is implemented by
 
 # CONSTRUCTOR
 
-The constructor is (predictably) `new`:
+## new
 
     use PlugAuth::Client::Tiny->new;
     my $client = PlugAuth::Client::Tiny->new;
@@ -48,30 +48,31 @@ which allows you to set `agent`, `default_headers`, etc.  See the documentation 
 
 # ATTRIBUTES
 
-## $client->url
+## url
+
+    my $url = $client->url;
 
 Returns the URL for the [PlugAuth](https://metacpan.org/pod/PlugAuth) server.  This attribute is read-only.
 
 # METHODS
 
-## $client->auth( $user, $password )
+## auth
+
+    my $bool = $client->auth( $user, $password );
 
 Attempt to authenticate against the [PlugAuth](https://metacpan.org/pod/PlugAuth) server using the given username and password.
 Returns 1 on success, 0 on failure and dies on a connection failure.
 
-## $client->authz( $user, $action, $resource)
+## authz
+
+    my $bool = $client->authz( $user, $action, $resource );
 
 Determine if the given user is authorized to perform the given action on the given resource.
 Returns 1 on success, 0 on failure and dies on connection failure.
 
-# CAVEATS
-
-This module depends on [HTTP::Tiny](https://metacpan.org/pod/HTTP::Tiny), which is a non-core dependency, and by
-some definitions of `::Tiny`, therefore no longer tiny.
-
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Graham Ollis &lt;plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 

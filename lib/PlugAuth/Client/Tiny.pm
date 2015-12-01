@@ -36,7 +36,7 @@ L<PlugAuth::Lite>.
 
 =head1 CONSTRUCTOR
 
-The constructor is (predictably) C<new>:
+=head2 new
 
  use PlugAuth::Client::Tiny->new;
  my $client = PlugAuth::Client::Tiny->new;
@@ -72,7 +72,9 @@ sub new
 
 =head1 ATTRIBUTES
 
-=head2 $client-E<gt>url
+=head2 url
+
+ my $url = $client->url;
 
 Returns the URL for the L<PlugAuth> server.  This attribute is read-only.
 
@@ -82,7 +84,9 @@ sub url { shift->{url} }
 
 =head1 METHODS
 
-=head2 $client-E<gt>auth( $user, $password )
+=head2 auth
+
+ my $bool = $client->auth( $user, $password );
 
 Attempt to authenticate against the L<PlugAuth> server using the given username and password.
 Returns 1 on success, 0 on failure and dies on a connection failure.
@@ -120,7 +124,9 @@ sub auth
   die $response->{content};
 }
 
-=head2 $client-E<gt>authz( $user, $action, $resource)
+=head2 authz
+
+ my $bool = $client->authz( $user, $action, $resource );
 
 Determine if the given user is authorized to perform the given action on the given resource.
 Returns 1 on success, 0 on failure and dies on connection failure.
@@ -141,10 +147,3 @@ sub authz
 }
 
 1;
-
-=head1 CAVEATS
-
-This module depends on L<HTTP::Tiny>, which is a non-core dependency, and by
-some definitions of C<::Tiny>, therefore no longer tiny.
-
-=cut
