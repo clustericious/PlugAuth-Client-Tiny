@@ -1,4 +1,4 @@
-# PlugAuth::Client::Tiny
+# PlugAuth::Client::Tiny [![Build Status](https://secure.travis-ci.org/clustericious/PlugAuth-Client-Tiny.png)](http://travis-ci.org/clustericious/PlugAuth-Client-Tiny)
 
 Minimal PlugAuth client
 
