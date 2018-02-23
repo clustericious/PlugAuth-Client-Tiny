@@ -1,6 +1,6 @@
 # PlugAuth::Client::Tiny [![Build Status](https://secure.travis-ci.org/clustericious/PlugAuth-Client-Tiny.png)](http://travis-ci.org/clustericious/PlugAuth-Client-Tiny)
 
-Minimal PlugAuth client
+(Deprecated) Minimal PlugAuth client
 
 # SYNOPSIS
 
@@ -16,6 +16,11 @@ Minimal PlugAuth client
     }
 
 # DESCRIPTION
+
+**NOTE**: Development for this tool is winding down, and [PlugAuth::Client::Tiny](https://metacpan.org/pod/PlugAuth::Client::Tiny)
+and modules that depend on are deprecated.  Please contact me ASAP if you depend
+on this tool. This distribution may be removed from CPAN, but not before
+june 30, 2018.
 
 PlugAuth::Client::Tiny is a minimal [PlugAuth](https://metacpan.org/pod/PlugAuth) client.  It uses [HTTP::Tiny](https://metacpan.org/pod/HTTP::Tiny) 
 instead of [LWP](https://metacpan.org/pod/LWP) or [Mojo::UserAgent](https://metacpan.org/pod/Mojo::UserAgent).  It provides only a mechanism for
@@ -78,7 +83,7 @@ Returns the version of the [PlugAuth](https://metacpan.org/pod/PlugAuth) server.
 
 # AUTHOR
 
-Graham Ollis &lt;plicease@cpan.org>
+Graham Ollis <plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 

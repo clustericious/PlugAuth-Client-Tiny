@@ -5,7 +5,7 @@ use warnings;
 use 5.006;
 use HTTP::Tiny;
 
-# ABSTRACT: Minimal PlugAuth client
+# ABSTRACT: (Deprecated) Minimal PlugAuth client
 # VERSION
 
 =head1 SYNOPSIS
@@ -22,6 +22,11 @@ use HTTP::Tiny;
  }
 
 =head1 DESCRIPTION
+
+B<NOTE>: Development for this tool is winding down, and L<PlugAuth::Client::Tiny>
+and modules that depend on are deprecated.  Please contact me ASAP if you depend
+on this tool. This distribution may be removed from CPAN, but not before
+june 30, 2018.
 
 PlugAuth::Client::Tiny is a minimal L<PlugAuth> client.  It uses L<HTTP::Tiny> 
 instead of L<LWP> or L<Mojo::UserAgent>.  It provides only a mechanism for
