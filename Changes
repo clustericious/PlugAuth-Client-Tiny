@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
 
 0.03      2018-02-23 11:25:34 -0500
+  - Deprecated.  Subject to removal on or after 30 June 2018.
 
 0.02      2015-12-01 10:15:48 -0500
   - Added version method
